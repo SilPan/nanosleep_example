@@ -51,8 +51,7 @@ int main(int argc, char** argv){
   if(nanosleep(&timespec_req, &timespec_rem) != 0){
     if(errno==EINTR){
       /*Just exit if we've got interrupted, we don't have a signal handler*/
-      //TODO:restart sleep
-      exit(EXIT_FAILURE);
+      exit(EXIT_SUCCESS);
     }else{
       fprintf(stderr, "errno is EINVAL: %s\n", errno==EINVAL?"true":"false");
       perror("Could not sleep");
